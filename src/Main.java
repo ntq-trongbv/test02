@@ -1,15 +1,32 @@
+import java.util.Scanner;
+
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    static double a, b, c, delta;
     public static void main(String[] args) {
-        // TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.println("Giải phương trình bậc 2: ax^2 + bx + c = 0");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập giá trị của a: ");
+        a = scanner.nextDouble();
+        System.out.println("Nhập giá trị của b: ");
+        b = scanner.nextDouble();
+        System.out.println("Nhập giá trị của c: ");
+        c = scanner.nextDouble();
 
-        for (int i = 1; i <= 5; i++) {
-            // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        if (a + b + c == 0) {
+            System.out.println("Phương trình có 2 nghiệm phân biệt x1= 1 và x2= " + c/a);
+        } else if (a - b + c == 0) {
+            System.out.println("Phương trình có 2 nghiệm phân biệt x1= -1 và x2= " + -c/a);
+        } else {
+            delta = b*b - 4*a*c;
+            if (delta < 0) {
+                System.out.println("Phương trình vô nghiệm");
+            } else if (delta == 0) {
+                System.out.println("Phương trình có nghiệm kép " + -b/2*a);
+            } else {
+                System.out.println("Phương trình có 2 nghiệm phân biệt x1= " + (-b + Math.sqrt(delta))/(2*a) + " và x2= " + (-b - Math.sqrt(delta))/(2*a));
+            }
         }
     }
 }
